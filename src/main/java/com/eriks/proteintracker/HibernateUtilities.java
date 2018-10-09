@@ -14,12 +14,14 @@ public class HibernateUtilities {
     static{
         try{
             Configuration configuration = new Configuration().configure();
+            configuration.addClass(com.eriks.entity.User.class);
             
             serviceRegistry  = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             sessionFactory = configuration.buildSessionFactory(serviceRegistry);
         }
         catch(HibernateException ex){
             System.out.println("Error creating session factory");
+            System.out.println(ex.toString());
         }
     }
     public static SessionFactory getSessionFactory(){
