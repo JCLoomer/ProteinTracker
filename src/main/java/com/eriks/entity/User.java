@@ -1,12 +1,17 @@
 package com.eriks.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class User {
     
     private int id;
     private String name;
-    private int total;
-    private int goal;
-
+    
+    private ProteinData proteinData = new ProteinData();
+    
+    private Set<UserHistory> history = new HashSet<>();
+    
     public int getId() {
         return id;
     }
@@ -23,26 +28,26 @@ public class User {
         this.name = name;
     }
 
-    public int getTotal() {
-        return total;
+    public ProteinData getProteinData() {
+        return proteinData;
     }
 
-    public void setTotal(int total) {
-        this.total = total;
+    public void setProteinData(ProteinData proteinData) {
+        this.proteinData = proteinData;
     }
 
-    public int getGoal() {
-        return goal;
+    public Set<UserHistory> getHistory() {
+        return history;
     }
 
-    public void setGoal(int goal) {
-        this.goal = goal;
+    public void setHistory(Set<UserHistory> history) {
+        this.history = history;
     }
-    
+
     @Override
     public String toString (){
         StringBuilder sb = new StringBuilder();
-        sb.append("ID: ").append(id).append(", Name: ").append(name).append(", Total: ").append(total).append(", Goal: ").append(goal).append(".");
+        sb.append("ID: ").append(id).append(", Name: ").append(name).append(proteinData.toString(false)).append(".");
         return sb.toString();
     }
 }
