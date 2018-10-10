@@ -18,12 +18,13 @@
             </property>
         </component>
         
-        <set name="history" table="user_history">
+        <list name="history" table="user_history">
             <key column="ID" />
+            <list-index column="position" />
             <composite-element class="com.eriks.entity.UserHistory">
                 <property name="entryTime" type="date" column="entry_time" />
                 <property name="entry" type="string" column="entry" />
             </composite-element>
-        </set>
+        </list>
     </class>
 </hibernate-mapping>
